@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Toàn Bảo Mật Thông Tin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-4">
+                <img src="https://via.placeholder.com/30" alt="Logo" class="h-6">
+                <a href="#" class="text-gray-600 hover:text-gray-900">Products</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Solutions</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Community</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Resources</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Pricing</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Link</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-gray-900">Sign in</a>
+                <a href="#" class="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">Register</a>
+            </div>
+        </div>
+        <div class="container mx-auto mt-2 flex justify-center space-x-4 text-gray-600">
+            <a href="#chapter1" class="chapter-link hover:text-gray-900" data-chapter="chapter1">Chương 1</a>
+            <a href="#chapter2" class="chapter-link hover:text-gray-900" data-chapter="chapter2">Chương 2</a>
+            <a href="#chapter3" class="chapter-link hover:text-gray-900" data-chapter="chapter3">Chương 3</a>
+            <a href="#chapter4" class="chapter-link hover:text-gray-900" data-chapter="chapter4">Chương 4</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-10 text-center">
+        <h1 class="text-4xl font-bold text-gray-800">Giới Thiệu Thần Viên</h1>
+        <p class="text-xl text-gray-600 mt-2">Bài Tập Lớn ATBMTT</p>
+        <div class="mt-6 space-x-4">
+            <button class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Thăm Viên</button>
+            <button class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Đăng Nhập</button>
+        </div>
+        <div class="mt-10 flex justify-center">
+            <img src="https://via.placeholder.com/600x300" alt="Placeholder" class="rounded-lg shadow-md">
+        </div>
+    </div>
+
+    <!-- Chapters Section -->
+    <div class="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+        <!-- Chương 1: Mã Hóa Cổ Điển -->
+        <section id="chapter1" class="chapter-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 1: Mã Hóa Cổ Điển</h2>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Lý Thuyết</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold">1. Mã hóa cổ điển và hiện đại</h4>
+                        <p class="text-gray-600 mt-2">Mã hóa cổ điển dùng thay thế/chuyển vị thủ công, dễ bị phá. Mã hóa hiện đại dùng toán học phức tạp.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold">2. An toàn tuyệt đối và tính toán</h4>
+                        <p class="text-gray-600 mt-2">An toàn tuyệt đối: Không phá được (One-Time Pad). An toàn tính toán: Khó phá trong thời gian hợp lý.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold">3. Tấn công vét cạn và Phân tích mã</h4>
+                        <p class="text-gray-600 mt-2">Brute-force: Thử key. Cryptanalysis: Phân tích cấu trúc mã.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold">4. Đối xứng và không đối xứng</h4>
+                        <p class="text-gray-600 mt-2">Đối xứng: Cùng key (AES). Không đối xứng: Key công khai/giải mã (RSA).</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Bài Tập</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">1. Mật Mã Caesar</h4>
+                        <div class="mb-2">Input: M = <input id="caesarM" type="text" class="p-2 border rounded" value="ITSASMALLWORLDIT"></div>
+                        <div class="mb-2">Key: K = <input id="caesarK" type="number" class="p-2 border rounded" value="22"></div>
+                        <button onclick="caesarEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                        <div class="mt-2">Output: C = <span id="caesarC" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">2. Mật Mã Vigenère - Lập Khóa</h4>
+                        <div class="mb-2">Input: M = <input id="vigenereLapM" type="text" class="p-2 border rounded" value="BETTERSAFETH"></div>
+                        <div class="mb-2">Key: K = <input id="vigenereLapK" type="text" class="p-2 border rounded" value="ITSASM"></div>
+                        <button onclick="vigenereLapEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                        <div class="mt-2">Output: C = <span id="vigenereLapC" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">3. Mật Mã Vigenère - Autokey</h4>
+                        <div class="mb-2">Input: M = <input id="vigenereAutoM" type="text" class="p-2 border rounded" value="BETTERSAFETH"></div>
+                        <div class="mb-2">Key: K = <input id="vigenereAutoK" type="text" class="p-2 border rounded" value="ITSASM"></div>
+                        <button onclick="vigenereAutoEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                        <div class="mt-2">Output: C = <span id="vigenereAutoC" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">4. Mã Hóa Chữ Đơn</h4>
+                        <div class="mb-2">Input: M = <input id="monoM" type="text" class="p-2 border rounded" value="ONESWALLOWDOESNT"></div>
+                        <div class="mb-2">Key: K = <input id="monoK" type="text" class="p-2 border rounded" value="WBXKGHIOVSYMFUAKZJNCQPLTRED"></div>
+                        <button onclick="monoEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                        <div class="mt-2">Output: C = <span id="monoC" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">5. Mật Mã Ma Trận Khóa Playfair</h4>
+                        <div class="mb-2">Input: M = <input id="playfairM" type="text" class="p-2 border rounded" value="ITSANILLBIRD"></div>
+                        <div class="mb-2">Key: K = <input id="playfairK" type="text" class="p-2 border rounded" value="NOROSEW"></div>
+                        <button onclick="playfairEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                        <div class="mt-2">Output: C = <span id="playfairC" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">6. Mật Mã Hoán Vị</h4>
+                        <div class="mb-2">Input: M = <input id="permM" type="text" class="p-2 border rounded" placeholder="Nhập M..."></div>
+                        <div class="mb-2">Key: K = <input id="permK" type="text" class="p-2 border rounded" placeholder="Nhập K..."></div>
+                        <button onclick="permEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                        <div class="mt-2">Output: C = <span id="permC" class="font-bold"></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chương 2: Mã Hóa Mô-đun -->
+        <section id="chapter2" class="chapter-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 2: Mã Hóa Mô-đun</h2>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Bài Tập</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">1. Tính Lũy Thừa Môđun</h4>
+                        <div class="mb-2">Input: a = <input id="ch2bt1a" type="number" class="p-2 border rounded" value="317"></div>
+                        <div class="mb-2">m = <input id="ch2bt1m" type="number" class="p-2 border rounded" value="6221"></div>
+                        <div class="mb-2">n = <input id="ch2bt1n" type="number" class="p-2 border rounded" value="6221"></div>
+                        <button onclick="ch2bt1Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính b</button>
+                        <div class="mt-2">Output: b = <span id="ch2bt1b" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">2. Nghịch Đảo Môđun</h4>
+                        <div class="mb-2">Input: a = <input id="ch2bt2a" type="number" class="p-2 border rounded" value="1125"></div>
+                        <div class="mb-2">n = <input id="ch2bt2n" type="number" class="p-2 border rounded" value="3739"></div>
+                        <button onclick="ch2bt2Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính x</button>
+                        <div class="mt-2">Output: x = <span id="ch2bt2x" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">3. Số Dư Định Lý Fermat</h4>
+                        <div class="mb-2">Input: a = <input id="ch2bt3a" type="number" class="p-2 border rounded" value="433"></div>
+                        <div class="mb-2">m = <input id="ch2bt3m" type="number" class="p-2 border rounded" value="6843"></div>
+                        <div class="mb-2">n = <input id="ch2bt3n" type="number" class="p-2 border rounded" value="6899"></div>
+                        <button onclick="ch2bt3Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính b</button>
+                        <div class="mt-2">Output: b = <span id="ch2bt3b" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">4. Tính Euler ø(n)</h4>
+                        <div class="mb-2">Input: n = <input id="ch2bt4n" type="number" class="p-2 border rounded" value="4533"></div>
+                        <button onclick="ch2bt4Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính ø(n)</button>
+                        <div class="mt-2">Output: ø(n) = <span id="ch2bt4phi" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">5. Định Lý Euler</h4>
+                        <div class="mb-2">Input: a = <input id="ch2bt5a" type="number" class="p-2 border rounded" value="36"></div>
+                        <div class="mb-2">m = <input id="ch2bt5m" type="number" class="p-2 border rounded" value="3918"></div>
+                        <div class="mb-2">n = <input id="ch2bt5n" type="number" class="p-2 border rounded" value="2287"></div>
+                        <button onclick="ch2bt5Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính b</button>
+                        <div class="mt-2">Output: b = <span id="ch2bt5b" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">6. Định Lý Trung Quốc</h4>
+                        <div class="mb-2">Input: m1 = <input id="ch2bt6m1" type="number" class="p-2 border rounded" value="17"></div>
+                        <div class="mb-2">m2 = <input id="ch2bt6m2" type="number" class="p-2 border rounded" value="19"></div>
+                        <div class="mb-2">m3 = <input id="ch2bt6m3" type="number" class="p-2 border rounded" value="11"></div>
+                        <div class="mb-2">a1 = <input id="ch2bt6a1" type="number" class="p-2 border rounded" value="16"></div>
+                        <div class="mb-2">a2 = <input id="ch2bt6a2" type="number" class="p-2 border rounded" value="18"></div>
+                        <div class="mb-2">a3 = <input id="ch2bt6a3" type="number" class="p-2 border rounded" value="7"></div>
+                        <button onclick="ch2bt6Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính x</button>
+                        <div class="mt-2">Output: x = <span id="ch2bt6x" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">7. Trả Số Nguyên Có Căn Môt Căn Nguyên Thủy</h4>
+                        <div class="mb-2">Input: a = <input id="ch2bt7a" type="number" class="p-2 border rounded" value="7"></div>
+                        <div class="mb-2">n = <input id="ch2bt7n" type="number" class="p-2 border rounded" value="449"></div>
+                        <button onclick="ch2bt7Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính k</button>
+                        <div class="mt-2">Output: k = <span id="ch2bt7k" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">8. Kiem Tra So Nguyen A Co La Mot Can Nguyen Thuy Cua So Nguyen N?</h4>
+                        <div class="mb-2">Input: a = <input id="ch2bt8a" type="number" class="p-2 border rounded" value="3"></div>
+                        <div class="mb-2">n = <input id="ch2bt8n" type="number" class="p-2 border rounded" value="19"></div>
+                        <button onclick="ch2bt8Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính k</button>
+                        <div class="mt-2">Output: k = <span id="ch2bt8k" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">9. Tinh Cbieu Thuc Modulo Co Ban</h4>
+                        <div class="mb-2">Input: a = <input id="ch2bt9a" type="number" class="p-2 border rounded" value="71"></div>
+                        <div class="mb-2">b = <input id="ch2bt9b" type="number" class="p-2 border rounded" value="83"></div>
+                        <div class="mb-2">x = <input id="ch2bt9x" type="number" class="p-2 border rounded" value="596"></div>
+                        <div class="mb-2">y = <input id="ch2bt9y" type="number" class="p-2 border rounded" value="175"></div>
+                        <div class="mb-2">n = <input id="ch2bt9n" type="number" class="p-2 border rounded" value="239"></div>
+                        <button onclick="ch2bt9Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính A1-A5</button>
+                        <div class="mt-2">Output: A1 = <span id="ch2bt9a1" class="font-bold"></span>, A2 = <span id="ch2bt9a2" class="font-bold"></span>, A3 = <span id="ch2bt9a3" class="font-bold"></span>, A4 = <span id="ch2bt9a4" class="font-bold"></span>, A5 = <span id="ch2bt9a5" class="font-bold"></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chương 3: DES -->
+        <section id="chapter3" class="chapter-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 3: Mã Hóa DES</h2>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Lý Thuyết</h3>
+                <p class="text-gray-600">DES là thuật toán mã hóa khối đối xứng với key 56-bit, sử dụng 16 vòng Feistel. Bao gồm hoán vị ban đầu, tạo subkey, hàm f, và hoán vị cuối.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Bài Tập</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">1. Sinh Khóa K tir từ K input</h4>
+                        <div class="mb-2">Input: K = <input id="des1K" type="text" class="p-2 border rounded" value="F90C3770C4B86CD9"></div>
+                        <button onclick="des1Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính K tir</button>
+                        <div class="mt-2">Output: K tir = <span id="des1Kt" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">2. Tính C, D từ PC1</h4>
+                        <div class="mb-2">Input: K tir = <input id="des2Kt" type="text" class="p-2 border rounded" value="25EA453FBFBAEE3"></div>
+                        <button onclick="des2Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C, D</button>
+                        <div class="mt-2">Output: C = <span id="des2C" class="font-bold"></span>, D = <span id="des2D" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">3. Tính Khóa K1 từ C1, D1</h4>
+                        <div class="mb-2">Input: C1 = <input id="des3C1" type="text" class="p-2 border rounded" value="111"></div>
+                        <div class="mb-2">D1 = <input id="des3D1" type="text" class="p-2 border rounded" value="11"></div>
+                        <button onclick="des3Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính K1</button>
+                        <div class="mt-2">Output: K1 = <span id="des3K1" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">4. Hoán Vị IP</h4>
+                        <div class="mb-2">Input: M = <input id="des4M" type="text" class="p-2 border rounded" value=" (Input)"></div>
+                        <button onclick="des4Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính IP</button>
+                        <div class="mt-2">Output: IP = <span id="des4IP" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">5. Tính L0, R0</h4>
+                        <div class="mb-2">Input: IP = <input id="des5IP" type="text" class="p-2 border rounded" value=" (IP)"></div>
+                        <button onclick="des5Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính L0, R0</button>
+                        <div class="mt-2">Output: L0 = <span id="des5L0" class="font-bold"></span>, R0 = <span id="des5R0" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">6. Tính XOR Er với K1</h4>
+                        <div class="mb-2">Input: Er = <input id="des6Er" type="text" class="p-2 border rounded" value=" (Er)"></div>
+                        <div class="mb-2">K1 = <input id="des6K1" type="text" class="p-2 border rounded" value=" (K1)"></div>
+                        <button onclick="des6Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính XOR</button>
+                        <div class="mt-2">Output: XOR = <span id="des6XOR" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">7. Tính Phe Thep S-box</h4>
+                        <div class="mb-2">Input: B = <input id="des7B" type="text" class="p-2 border rounded" value=" A (ket qua bai 6)"></div>
+                        <button onclick="des7Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính S-box</button>
+                        <div class="mt-2">Output: S = <span id="des7S" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">8. Tính Hoán Vị P</h4>
+                        <div class="mb-2">Input: S = <input id="des8S" type="text" class="p-2 border rounded" value=" (S)"></div>
+                        <button onclick="des8Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính P</button>
+                        <div class="mt-2">Output: P = <span id="des8P" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">9. Tính Hoán Vị Lập Thứ n</h4>
+                        <div class="mb-2">Input: L0 = <input id="des9L0" type="text" class="p-2 border rounded" value=" (L0)"></div>
+                        <div class="mb-2">P = <input id="des9P" type="text" class="p-2 border rounded" value=" (P)"></div>
+                        <button onclick="des9Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính R1</button>
+                        <div class="mt-2">Output: R1 = <span id="des9R1" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">10. Tính Hoán Vị Vòng Lập Thứ n</h4>
+                        <div class="mb-2">Input: L1 = <input id="des10L1" type="text" class="p-2 border rounded" value=" (L1 = R0)"></div>
+                        <div class="mb-2">R1 = <input id="des10R1" type="text" class="p-2 border rounded" value=" (R1)"></div>
+                        <button onclick="des10Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính L2, R2</button>
+                        <div class="mt-2">Output: L2 = <span id="des10L2" class="font-bold"></span>, R2 = <span id="des10R2" class="font-bold"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần AES</h4>
+                <p class="text-gray-600">Nội dung AES sẽ được thêm sau.</p>
+            </div>
+        </section>
+
+        <!-- Chương 4: Placeholder -->
+        <section id="chapter4" class="chapter-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 4: [Tên Chương]</h2>
+            <p class="text-gray-600">Nội dung Chương 4 sẽ được thêm sau.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <img src="https://via.placeholder.com/30" alt="Logo" class="h-6">
+            </div>
+            <div class="flex space-x-6">
+                <div>
+                    <h4 class="font-semibold">Use cases</h4>
+                    <p class="text-sm text-gray-400">UI design</p>
+                    <p class="text-sm text-gray-400">Wireframing</p>
+                    <p class="text-sm text-gray-400">Brainstorming</p>
+                    <p class="text-sm text-gray-400">Team collaboration</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Design</h4>
+                    <p class="text-sm text-gray-400">Prototyping features</p>
+                    <p class="text-sm text-gray-400">Collaboration features</p>
+                    <p class="text-sm text-gray-400">Design process</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold">Resources</h4>
+                    <p class="text-sm text-gray-400">Best practices</p>
+                    <p class="text-sm text-gray-400">Color wheel</p>
+                    <p class="text-sm text-gray-400">Support</p>
+                    <p class="text-sm text-gray-400">Resource library</p>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#"><img src="https://via.placeholder.com/20" alt="FB" class="h-5"></a>
+                <a href="#"><img src="https://via.placeholder.com/20" alt="IG" class="h-5"></a>
+                <a href="#"><img src="https://via.placeholder.com/20" alt="TW" class="h-5"></a>
+                <a href="#"><img src="https://via.placeholder.com/20" alt="LI" class="h-5"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

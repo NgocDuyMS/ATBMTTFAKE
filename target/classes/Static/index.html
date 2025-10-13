@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Toàn Bảo Mật Thông Tin - Chương 1: Mã Hóa Cổ Điển</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">An Toàn Bảo Mật Thông Tin</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:underline">Trang chủ</a></li>
+                <li><a href="#theory" class="hover:underline">Lý thuyết</a></li>
+                <li><a href="#exercises" class="hover:underline">Bài tập</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Trang chủ Section -->
+    <section id="home" class="container mx-auto p-6">
+        <h2 class="text-3xl font-bold text-blue-600 mb-4">Chào mừng đến với Chương 1</h2>
+        <p class="mb-4">Trang web này giới thiệu mã hóa cổ điển, bao gồm lý thuyết và bài tập thực hành. Dễ hiểu cho sinh viên IT, với demo code để trình diễn.</p>
+    </section>
+
+    <!-- Lý thuyết Section -->
+    <section id="theory" class="container mx-auto p-6 bg-white rounded-lg shadow-md mb-8">
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Phần Lý Thuyết</h2>
+        <div class="space-y-6">
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">1. Mã hóa cổ điển và Mã hóa hiện đại</h3>
+                <p>Mã hóa cổ điển (như Caesar, Vigenère) dùng thay thế/chuyển vị thủ công, dễ bị phá bằng tay. Mã hóa hiện đại (AES, RSA) dùng toán học phức tạp, an toàn hơn nhờ sức mạnh tính toán.</p>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">2. An toàn tuyệt đối và An toàn tính toán</h3>
+                <p>An toàn tuyệt đối: Không thể phá dù có vô hạn tài nguyên (ví dụ One-Time Pad). An toàn tính toán: Khó phá trong thời gian hợp lý với công nghệ hiện tại.</p>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">3. Tấn công vét cạn (Brute-force) và Phân tích mã</h3>
+                <p>Brute-force: Thử tất cả key (dễ với key ngắn). Cryptanalysis: Phân tích cấu trúc mã để tìm điểm yếu (ví dụ tần suất chữ cái).</p>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">4. Mô hình mã hóa đối xứng và không đối xứng</h3>
+                <p>Đối xứng: Dùng cùng key (nhanh, ví dụ AES). Không đối xứng: Key công khai mã hóa, key riêng tư giải mã (ví dụ RSA).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bài tập Section -->
+    <section id="exercises" class="container mx-auto p-6 bg-white rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Phần Bài Tập - Demo Mã Hóa</h2>
+        <p class="mb-4">Nhập input và key để tính output. Code JS đơn giản để demo.</p>
+        <div class="space-y-8">
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">1. Mật Mã Caesar</h3>
+                <div class="mb-2">Input: M = <input id="caesarM" type="text" class="p-2 border rounded" value="ITSASMALLWORLDIT"></div>
+                <div class="mb-2">Key: K = <input id="caesarK" type="number" class="p-2 border rounded" value="22"></div>
+                <button onclick="caesarEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                <div class="mt-2">Output: C = <span id="caesarC" class="font-bold"></span></div>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">2. Mật Mã Vigenère - Lập Khóa</h3>
+                <div class="mb-2">Input: M = <input id="vigenereLapM" type="text" class="p-2 border rounded" value="BETTERSAFETH"></div>
+                <div class="mb-2">Key: K = <input id="vigenereLapK" type="text" class="p-2 border rounded" value="ITSASM"></div>
+                <button onclick="vigenereLapEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                <div class="mt-2">Output: C = <span id="vigenereLapC" class="font-bold"></span></div>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">3. Mật Mã Vigenère - Autokey</h3>
+                <div class="mb-2">Input: M = <input id="vigenereAutoM" type="text" class="p-2 border rounded" value="BETTERSAFETH"></div>
+                <div class="mb-2">Key: K = <input id="vigenereAutoK" type="text" class="p-2 border rounded" value="ITSASM"></div>
+                <button onclick="vigenereAutoEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                <div class="mt-2">Output: C = <span id="vigenereAutoC" class="font-bold"></span></div>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">4. Mã Hóa Chữ Đơn</h3>
+                <div class="mb-2">Input: M = <input id="monoM" type="text" class="p-2 border rounded" value="ONESWALLOWDOESNT"></div>
+                <div class="mb-2">Key: K = <input id="monoK" type="text" class="p-2 border rounded" value="WBXKGHIOVSYMFUAKZJNCQPLTRED"></div>
+                <button onclick="monoEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                <div class="mt-2">Output: C = <span id="monoC" class="font-bold"></span></div>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">5. Mật Mã Playfair</h3>
+                <div class="mb-2">Input: M = <input id="playfairM" type="text" class="p-2 border rounded" value="ITSANILLBIRD"></div>
+                <div class="mb-2">Key: K = <input id="playfairK" type="text" class="p-2 border rounded" value="NOROSEW"></div>
+                <button onclick="playfairEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                <div class="mt-2">Output: C = <span id="playfairC" class="font-bold"></span></div>
+            </div>
+            <div class="p-4 border rounded-lg bg-gray-50">
+                <h3 class="text-xl font-semibold mb-2">6. Mật Mã Hoán Vị</h3>
+                <div class="mb-2">Input: M = <input id="permM" type="text" class="p-2 border rounded" placeholder="Nhập M..."></div>
+                <div class="mb-2">Key: K = <input id="permK" type="text" class="p-2 border rounded" placeholder="Nhập K..."></div>
+                <button onclick="permEncrypt()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                <div class="mt-2">Output: C = <span id="permC" class="font-bold"></span></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
