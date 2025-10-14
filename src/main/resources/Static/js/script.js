@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('chapter1').classList.add('active');
 });
 
+
+
+
+
+
 // Chương 1: Mã Hóa Cổ Điển
 function caesarEncrypt() {
     let m = document.getElementById('caesarM').value.toUpperCase().replace(/[^A-Z]/g, '');
@@ -191,3 +196,198 @@ function des2Calc() {
 }
 
 // Tương tự cho des3Calc đến des10Calc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// AES - Bài 1: Tạo Khóa AES (Key Expansion)
+function aes1Calc() {
+    let key = document.getElementById('aes1Key').value;
+    if (key.length !== 32 || !/^[0-9a-fA-F]+$/.test(key)) {
+        document.getElementById('aes1RoundKey1').textContent = "Key phải là 128-bit hex (32 ký tự)";
+        return;
+    }
+    // Placeholder: Giả lập tạo round key đầu tiên
+    let roundKey1 = key.slice(0, 32); // Thực tế cần Key Expansion với Rcon và S-box
+    document.getElementById('aes1RoundKey1').textContent = roundKey1;
+}
+
+// AES - Bài 2: Hoán Vị Ban Đầu (AddRoundKey)
+function aes2Calc() {
+    let state = document.getElementById('aes2State').value;
+    let key = document.getElementById('aes2Key').value;
+    if (state.length !== 32 || key.length !== 32 || !/^[0-9a-fA-F]+$/.test(state + key)) {
+        document.getElementById('aes2StateOut').textContent = "State và Key phải là 128-bit hex (32 ký tự)";
+        return;
+    }
+    // Placeholder: XOR đơn giản (thực tế cần chia thành 4x4 ma trận và XOR)
+    let stateOut = '';
+    for (let i = 0; i < 32; i++) {
+        let s = parseInt(state[i], 16) ^ parseInt(key[i], 16);
+        stateOut += s.toString(16).padStart(1, '0');
+    }
+    document.getElementById('aes2StateOut').textContent = stateOut;
+}
+
+// AES - Bài 3: SubBytes
+function aes3Calc() {
+    let state = document.getElementById('aes3State').value;
+    if (state.length !== 24 || !/^[0-9a-fA-F]+$/.test(state)) {
+        document.getElementById('aes3StateOut').textContent = "State phải là hex hợp lệ (24 ký tự)";
+        return;
+    }
+    // Placeholder: Giả lập SubBytes (thực tế cần bảng S-box AES)
+    let stateOut = state.split('').map(x => parseInt(x, 16) + 1).join(''); // Tăng giá trị đơn giản
+    document.getElementById('aes3StateOut').textContent = stateOut;
+}
+
+// AES - Bài 4: ShiftRows
+function aes4Calc() {
+    let state = document.getElementById('aes4State').value;
+    if (state.length !== 15 || !/^[0-9a-fA-F]+$/.test(state)) {
+        document.getElementById('aes4StateOut').textContent = "State phải là hex hợp lệ (15 ký tự)";
+        return;
+    }
+    // Placeholder: Dịch trái đơn giản (thực tế cần dịch từng hàng)
+    let stateArray = state.match(/.{1,3}/g);
+    let shifted = stateArray.slice(1).concat(stateArray[0]);
+    document.getElementById('aes4StateOut').textContent = shifted.join('');
+}
+
+// AES - Bài 5: MixColumns
+function aes5Calc() {
+    let state = document.getElementById('aes5State').value;
+    if (state.length !== 15 || !/^[0-9a-fA-F]+$/.test(state)) {
+        document.getElementById('aes5StateOut').textContent = "State phải là hex hợp lệ (15 ký tự)";
+        return;
+    }
+    // Placeholder: Giả lập MixColumns (thực tế cần nhân ma trận)
+    let stateOut = state.split('').map(x => parseInt(x, 16) * 2 % 16).join('');
+    document.getElementById('aes5StateOut').textContent = stateOut;
+}
+
+// AES - Bài 6: Toàn Bộ Một Vòng AES
+function aes6Calc() {
+    let state = document.getElementById('aes6State').value;
+    let key = document.getElementById('aes6Key').value;
+    if (state.length !== 32 || key.length !== 32 || !/^[0-9a-fA-F]+$/.test(state + key)) {
+        document.getElementById('aes6StateOut').textContent = "State và Key phải là 128-bit hex (32 ký tự)";
+        return;
+    }
+    // Placeholder: Kết hợp các bước trên
+    let stateOut = state; // Thực tế cần SubBytes, ShiftRows, MixColumns, AddRoundKey
+    document.getElementById('aes6StateOut').textContent = stateOut + " (Cần triển khai chi tiết)";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// RSA - Bài 1: Tạo Khóa RSA (Chọn p, q)
+function rsa1Calc() {
+    let p = parseInt(document.getElementById('rsa1p').value);
+    let q = parseInt(document.getElementById('rsa1q').value);
+    let n = p * q;
+    let phi = (p - 1) * (q - 1);
+    document.getElementById('rsa1n').textContent = n;
+    document.getElementById('rsa1phi').textContent = phi;
+}
+
+// RSA - Bài 2: Chọn Khóa Công khai (e)
+function rsa2Calc() {
+    let phi = parseInt(document.getElementById('rsa2phi').value);
+    let e = parseInt(document.getElementById('rsa2e').value);
+    let result = (e < phi && gcd(e, phi) === 1) ? "e hợp lệ" : "e không hợp lệ (phải nguyên tố cùng nhau với φ(n))";
+    document.getElementById('rsa2result').textContent = result;
+}
+
+function gcd(a, b) {
+    return b ? gcd(b, a % b) : a;
+}
+
+// RSA - Bài 3: Tính Khóa Bí mật (d)
+function rsa3Calc() {
+    let e = parseInt(document.getElementById('rsa3e').value);
+    let phi = parseInt(document.getElementById('rsa3phi').value);
+    let d = modInverse(e, phi);
+    document.getElementById('rsa3d').textContent = d !== null ? d : "Không tìm được d (e và φ(n) không nguyên tố cùng nhau)";
+}
+
+function modInverse(a, m) {
+    let m0 = m, x0 = 0, x1 = 1;
+    if (m === 1) return 0;
+    while (a > 1) {
+        let q = Math.floor(a / m);
+        let t = m;
+        m = a % m;
+        a = t;
+        t = x0;
+        x0 = x1 - q * x0;
+        x1 = t;
+    }
+    if (x1 < 0) x1 += m0;
+    return x1;
+}
+
+// RSA - Bài 4: Mã hóa RSA
+function rsa4Calc() {
+    let m = parseInt(document.getElementById('rsa4m').value);
+    let e = parseInt(document.getElementById('rsa4e').value);
+    let n = parseInt(document.getElementById('rsa4n').value);
+    let c = modPow(m, e, n);
+    document.getElementById('rsa4c').textContent = c;
+}
+
+function modPow(base, exp, mod) {
+    let result = 1;
+    base = base % mod;
+    while (exp > 0) {
+        if (exp & 1) result = (result * base) % mod;
+        base = (base * base) % mod;
+        exp >>= 1;
+    }
+    return result;
+}
+
+// RSA - Bài 5: Giải mã RSA
+function rsa5Calc() {
+    let c = parseInt(document.getElementById('rsa5c').value);
+    let d = parseInt(document.getElementById('rsa5d').value);
+    let n = parseInt(document.getElementById('rsa5n').value);
+    let m = modPow(c, d, n);
+    document.getElementById('rsa5m').textContent = m;
+}

@@ -12,7 +12,7 @@
     <nav class="bg-white shadow-md p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex space-x-4">
-                <img src="https://via.placeholder.com/30" alt="Logo" class="h-6">
+                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/03/Logo-Dai-Hoc-Giao-Thong-Van-Tai-UTC.png" alt="Logo" class="h-6">
                 <a href="#" class="text-gray-600 hover:text-gray-900">Products</a>
                 <a href="#" class="text-gray-600 hover:text-gray-900">Solutions</a>
                 <a href="#" class="text-gray-600 hover:text-gray-900">Community</a>
@@ -20,10 +20,6 @@
                 <a href="#" class="text-gray-600 hover:text-gray-900">Pricing</a>
                 <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
                 <a href="#" class="text-gray-600 hover:text-gray-900">Link</a>
-            </div>
-            <div class="flex space-x-4">
-                <a href="#" class="text-gray-600 hover:text-gray-900">Sign in</a>
-                <a href="#" class="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700">Register</a>
             </div>
         </div>
         <div class="container mx-auto mt-2 flex justify-center space-x-4 text-gray-600">
@@ -36,14 +32,14 @@
 
     <!-- Main Content -->
     <div class="container mx-auto mt-10 text-center">
-        <h1 class="text-4xl font-bold text-gray-800">Giới Thiệu Thần Viên</h1>
-        <p class="text-xl text-gray-600 mt-2">Bài Tập Lớn ATBMTT</p>
+        <h1 class="text-4xl font-bold text-gray-800">AN TOÀN BẢO MẬT THÔNG TIN</h1>
+        <p class="text-xl text-gray-600 mt-2">Bài Tập Lớn Nhóm 7</p>
         <div class="mt-6 space-x-4">
-            <button class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Thăm Viên</button>
+            <button class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Thành Viên</button>
             <button class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Đăng Nhập</button>
         </div>
         <div class="mt-10 flex justify-center">
-            <img src="https://via.placeholder.com/600x300" alt="Placeholder" class="rounded-lg shadow-md">
+            <img src="https://i.pinimg.com/236x/8e/6d/a9/8e6da97ca11f1d070292ab14d387d7d9.jpg" alt="Placeholder" class="rounded-lg shadow-md">
         </div>
     </div>
 
@@ -282,14 +278,113 @@
             </div>
             <div class="mt-6">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần AES</h4>
-                <p class="text-gray-600">Nội dung AES sẽ được thêm sau.</p>
             </div>
+            
+            <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4 mt-6">Phần Bài Tập AES</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-gray-100 rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">1. Tạo Khóa AES (Key Expansion)</h4>
+                    <div class="mb-2">Input: Key (128-bit) = <input id="aes1Key" type="text" class="p-2 border rounded" value="2b7e151628aed2a6abf7158809cf4f3c"></div>
+                    <button onclick="aes1Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tạo Round Keys</button>
+                    <div class="mt-2">Output: Round Key 1 = <span id="aes1RoundKey1" class="font-bold"></span></div>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">2. Hoán Vị Ban Đầu (AddRoundKey)</h4>
+                    <div class="mb-2">Input: State = <input id="aes2State" type="text" class="p-2 border rounded" value="3243f6a8885a308d313198a2e0370734"></div>
+                    <div class="mb-2">Key = <input id="aes2Key" type="text" class="p-2 border rounded" value="2b7e151628aed2a6abf7158809cf4f3c"></div>
+                    <button onclick="aes2Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính State Sau</button>
+                    <div class="mt-2">Output: State Sau = <span id="aes2StateOut" class="font-bold"></span></div>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">3. SubBytes (Thay Thế Byte)</h4>
+                    <div class="mb-2">Input: State = <input id="aes3State" type="text" class="p-2 border rounded" value="001020300405160714152627"></div>
+                    <button onclick="aes3Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính SubBytes</button>
+                    <div class="mt-2">Output: State Sau = <span id="aes3StateOut" class="font-bold"></span></div>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">4. ShiftRows</h4>
+                    <div class="mb-2">Input: State = <input id="aes4State" type="text" class="p-2 border rounded" value="d4e0b8a7c0d068ff3544d973"></div>
+                    <button onclick="aes4Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính ShiftRows</button>
+                    <div class="mt-2">Output: State Sau = <span id="aes4StateOut" class="font-bold"></span></div>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">5. MixColumns</h4>
+                    <div class="mb-2">Input: State = <input id="aes5State" type="text" class="p-2 border rounded" value="d4e0b8a7c0d068ff3544d973"></div>
+                    <button onclick="aes5Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính MixColumns</button>
+                    <div class="mt-2">Output: State Sau = <span id="aes5StateOut" class="font-bold"></span></div>
+                </div>
+                <div class="p-4 bg-gray-100 rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">6. Toàn Bộ Một Vòng AES</h4>
+                    <div class="mb-2">Input: State = <input id="aes6State" type="text" class="p-2 border rounded" value="3243f6a8885a308d313198a2e0370734"></div>
+                    <div class="mb-2">Key = <input id="aes6Key" type="text" class="p-2 border rounded" value="2b7e151628aed2a6abf7158809cf4f3c"></div>
+                    <button onclick="aes6Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính State Sau Vòng</button>
+                    <div class="mt-2">Output: State Sau = <span id="aes6StateOut" class="font-bold"></span></div>
+                </div>
+            </div>
+        </div>
+
+
         </section>
 
         <!-- Chương 4: Placeholder -->
         <section id="chapter4" class="chapter-section">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 4: [Tên Chương]</h2>
-            <p class="text-gray-600">Nội dung Chương 4 sẽ được thêm sau.</p>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 4: Mã Hóa Công Khai RSA</h2>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Lý Thuyết</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold">1. Tổng quan RSA</h4>
+                        <p class="text-gray-600 mt-2">RSA là thuật toán mã hóa không đối xứng, dựa trên phép toán số học mô-đun và tính khó phân tích số nguyên tố lớn.</p>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold">2. Khóa công khai và khóa bí mật</h4>
+                        <p class="text-gray-600 mt-2">Khóa công khai (e, n) dùng để mã hóa, khóa bí mật (d, n) dùng để giải mã.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Bài Tập</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">1. Tạo Khóa RSA (Chọn p, q)</h4>
+                        <div class="mb-2">Input: p = <input id="rsa1p" type="number" class="p-2 border rounded" value="61"></div>
+                        <div class="mb-2">q = <input id="rsa1q" type="number" class="p-2 border rounded" value="53"></div>
+                        <button onclick="rsa1Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính n, φ(n)</button>
+                        <div class="mt-2">Output: n = <span id="rsa1n" class="font-bold"></span>, φ(n) = <span id="rsa1phi" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">2. Chọn Khóa Công khai (e)</h4>
+                        <div class="mb-2">Input: φ(n) = <input id="rsa2phi" type="number" class="p-2 border rounded" value="3120"></div>
+                        <div class="mb-2">e = <input id="rsa2e" type="number" class="p-2 border rounded" value="17"></div>
+                        <button onclick="rsa2Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Kiểm tra e</button>
+                        <div class="mt-2">Output: Kết quả = <span id="rsa2result" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">3. Tính Khóa Bí mật (d)</h4>
+                        <div class="mb-2">Input: e = <input id="rsa3e" type="number" class="p-2 border rounded" value="17"></div>
+                        <div class="mb-2">φ(n) = <input id="rsa3phi" type="number" class="p-2 border rounded" value="3120"></div>
+                        <button onclick="rsa3Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính d</button>
+                        <div class="mt-2">Output: d = <span id="rsa3d" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">4. Mã hóa RSA</h4>
+                        <div class="mb-2">Input: M = <input id="rsa4m" type="number" class="p-2 border rounded" value="65"></div>
+                        <div class="mb-2">e = <input id="rsa4e" type="number" class="p-2 border rounded" value="17"></div>
+                        <div class="mb-2">n = <input id="rsa4n" type="number" class="p-2 border rounded" value="3233"></div>
+                        <button onclick="rsa4Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính C</button>
+                        <div class="mt-2">Output: C = <span id="rsa4c" class="font-bold"></span></div>
+                    </div>
+                    <div class="p-4 bg-gray-100 rounded-lg shadow">
+                        <h4 class="font-semibold mb-2">5. Giải mã RSA</h4>
+                        <div class="mb-2">Input: C = <input id="rsa5c" type="number" class="p-2 border rounded" value="2790"></div>
+                        <div class="mb-2">d = <input id="rsa5d" type="number" class="p-2 border rounded" value="2753"></div>
+                        <div class="mb-2">n = <input id="rsa5n" type="number" class="p-2 border rounded" value="3233"></div>
+                        <button onclick="rsa5Calc()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tính M</button>
+                        <div class="mt-2">Output: M = <span id="rsa5m" class="font-bold"></span></div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -297,9 +392,9 @@
     <footer class="bg-gray-800 text-white p-6 mt-10">
         <div class="container mx-auto flex justify-between items-center">
             <div>
-                <img src="https://via.placeholder.com/30" alt="Logo" class="h-6">
+                <img src="https://t4.ftcdn.net/jpg/09/64/89/17/360_F_964891760_h0DymPvgJ0dZtcdWLts0qQIrk9fKWpjG.jpg" alt="Logo" class="h-6">
             </div>
-            <div class="flex space-x-6">
+            <div class="flex space-x-40">
                 <div>
                     <h4 class="font-semibold">Use cases</h4>
                     <p class="text-sm text-gray-400">UI design</p>
@@ -322,10 +417,10 @@
                 </div>
             </div>
             <div class="flex space-x-4">
-                <a href="#"><img src="https://via.placeholder.com/20" alt="FB" class="h-5"></a>
-                <a href="#"><img src="https://via.placeholder.com/20" alt="IG" class="h-5"></a>
-                <a href="#"><img src="https://via.placeholder.com/20" alt="TW" class="h-5"></a>
-                <a href="#"><img src="https://via.placeholder.com/20" alt="LI" class="h-5"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/1024px-2023_Facebook_icon.svg.png" alt="FB" class="h-5"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="IG" class="h-5"></a>
+                <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/X_icon.svg/512px-X_icon.svg.png" alt="TW" class="h-5"></a>
+                <a href="#"><img src="data:image/png;base64,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" alt="LI" class="h-5"></a>
             </div>
         </div>
     </footer>
