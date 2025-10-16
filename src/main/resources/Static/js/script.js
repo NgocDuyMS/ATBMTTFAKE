@@ -104,6 +104,18 @@ function permEncrypt() {
     document.getElementById('permC').textContent = 'NA (Bổ sung code)';
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 // Chương 2: Mã Hóa Mô-đun
 function ch2bt1Calc() {
     let a = parseInt(document.getElementById('ch2bt1a').value);
@@ -204,6 +216,22 @@ function ch2bt9Calc() {
     document.getElementById('ch2bt9a5').textContent = A5;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Chương 3: DES
 function des1Calc() {
     let plain = document.getElementById('des1Plain').value;
@@ -223,21 +251,6 @@ function des2Calc() {
 }
 
 // Tương tự cho des3Calc đến des10Calc
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -327,23 +340,7 @@ function aes6Calc() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Chuong 4 : ma hoa cong khai
 // RSA - Bài 1: Tạo Khóa RSA (Chọn p, q)
 function rsa1Calc() {
     let p = parseInt(document.getElementById('rsa1p').value);
