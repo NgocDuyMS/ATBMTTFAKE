@@ -391,3 +391,46 @@ function rsa5Calc() {
     let m = modPow(c, d, n);
     document.getElementById('rsa5m').textContent = m;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// modal thanh vien
+// Mở modal Danh sách sinh viên
+document.getElementById('openModal').addEventListener('click', function() {
+    document.getElementById('memberModal').classList.add('active');
+});
+
+// Đóng modal
+document.getElementById('closeModal').addEventListener('click', function() {
+    document.getElementById('memberModal').classList.remove('active');
+});
+
+// Đóng modal khi ấn ngoài nội dung
+document.getElementById('memberModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.classList.remove('active');
+    }
+});

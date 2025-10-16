@@ -54,3 +54,31 @@ button.bg-blue-500:hover {
     transform: scale(1.05);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/*  them vao khi muon hien thi thong tin thanh vien  */
+/* Modal Danh sách sinh viên */
+#memberModal {
+    transition: opacity 0.3s ease;
+}
+
+#memberModal.active {
+    display: flex;
+}
+
+.member-card {
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: scale(1.05);
+}
+
+#closeModal {
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .grid-cols-5 {
+        grid-template-columns: 1fr; /* 1 cột trên mobile */
+    }
+}

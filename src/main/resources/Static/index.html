@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>An Toàn Bảo Mật Thông Tin</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 font-sans text-gray-800">
     <!-- Navigation Bar -->
@@ -35,11 +35,71 @@
         <h1 class="text-4xl font-bold text-gray-800">AN TOÀN BẢO MẬT THÔNG TIN</h1>
         <p class="text-xl text-gray-600 mt-2">Bài Tập Lớn Nhóm 7</p>
         <div class="mt-6 space-x-4">
-            <button class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Thành Viên</button>
-            <button class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Đăng Nhập</button>
+            <button id="openModal" class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Thành Viên</button>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Giảng Viên Hướng Dẫn</button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Tài Liệu Tham Khảo</button>
         </div>
         <div class="mt-10 flex justify-center">
             <img src="https://i.pinimg.com/236x/8e/6d/a9/8e6da97ca11f1d070292ab14d387d7d9.jpg" alt="Placeholder" class="rounded-lg shadow-md">
+        </div>
+        <!-- Modal Danh sách sinh viên (ẩn ban đầu) -->
+        <div id="memberModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl w-full overflow-y-auto max-h-80 md:max-h-screen">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Danh sách Sinh viên Nhóm</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <!-- Thành viên 1 -->
+                    <div class="p-4 bg-gray-100 rounded-lg shadow text-center">
+                        <img src="image/member1.jpg" alt="Thành viên 1" class="w-full h-32 object-cover rounded-md mb-2">
+                        <p><strong>Tên:</strong> Nguyễn Văn A</p>
+                        <p><strong>Tuổi:</strong> 20</p>
+                        <p><strong>Nơi học:</strong> UTC</p>
+                        <p><strong>Mã SV:</strong> 123456</p>
+                        <p><strong>Nhiệm vụ:</strong> Frontend</p>
+                        <p><strong>Hôn nhân:</strong> Độc thân</p>
+                    </div>
+                    <!-- Thành viên 2 -->
+                    <div class="p-4 bg-gray-100 rounded-lg shadow text-center">
+                        <img src="image/member2.jpg" alt="Thành viên 2" class="w-full h-32 object-cover rounded-md mb-2">
+                        <p><strong>Tên:</strong> Trần Thị B</p>
+                        <p><strong>Tuổi:</strong> 21</p>
+                        <p><strong>Nơi học:</strong> UTC</p>
+                        <p><strong>Mã SV:</strong> 654321</p>
+                        <p><strong>Nhiệm vụ:</strong> Backend</p>
+                        <p><strong>Hôn nhân:</strong> Độc thân</p>
+                    </div>
+                    <!-- Thành viên 3 -->
+                    <div class="p-4 bg-gray-100 rounded-lg shadow text-center">
+                        <img src="image/member3.jpg" alt="Thành viên 3" class="w-full h-32 object-cover rounded-md mb-2">
+                        <p><strong>Tên:</strong> Lê Văn C</p>
+                        <p><strong>Tuổi:</strong> 20</p>
+                        <p><strong>Nơi học:</strong> UTC</p>
+                        <p><strong>Mã SV:</strong> 112233</p>
+                        <p><strong>Nhiệm vụ:</strong> Thiết kế UI</p>
+                        <p><strong>Hôn nhân:</strong> Độc thân</p>
+                    </div>
+                    <!-- Thành viên 4 -->
+                    <div class="p-4 bg-gray-100 rounded-lg shadow text-center">
+                        <img src="image/member4.jpg" alt="Thành viên 4" class="w-full h-32 object-cover rounded-md mb-2">
+                        <p><strong>Tên:</strong> Phạm Thị D</p>
+                        <p><strong>Tuổi:</strong> 21</p>
+                        <p><strong>Nơi học:</strong> UTC</p>
+                        <p><strong>Mã SV:</strong> 445566</p>
+                        <p><strong>Nhiệm vụ:</strong> Test & Debug</p>
+                        <p><strong>Hôn nhân:</strong> Độc thân</p>
+                    </div>
+                    <!-- Thành viên 5 -->
+                    <div class="p-4 bg-gray-100 rounded-lg shadow text-center">
+                        <img src="image/member5.jpg" alt="Thành viên 5" class="w-full h-32 object-cover rounded-md mb-2">
+                        <p><strong>Tên:</strong> Vũ Văn E</p>
+                        <p><strong>Tuổi:</strong> 20</p>
+                        <p><strong>Nơi học:</strong> UTC</p>
+                        <p><strong>Mã SV:</strong> 778899</p>
+                        <p><strong>Nhiệm vụ:</strong> Tài liệu & Báo cáo</p>
+                        <p><strong>Hôn nhân:</strong> Độc thân</p>
+                    </div>
+                </div>
+                <button id="closeModal" class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Đóng</button>
+            </div>
         </div>
     </div>
 
@@ -213,6 +273,21 @@
         <section id="chapter2" class="chapter-section">
             <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 2: Mã Hóa Mô-đun</h2>
             <div class="mb-6">
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Lý Thuyết</h3>
+                <!-- Toi muon viet li thuyet duoi day-->
+                <p class="text-gray-600">Mã hóa mô-đun sử dụng các phép toán số học trên các số nguyên trong một tập hợp giới hạn, thường là các số nguyên modulo n. Các khái niệm chính bao gồm:</p>
+                <ul class="list-disc pl-6 text-gray-600">
+                    <li><strong>Lũy thừa mô-đun:</strong> Tính toán a^b mod n, giúp xử lý các số lớn trong mã hóa.</li>
+                    <li><strong>Nghịch đảo mô-đun:</strong> Tìm x sao cho a*x ≡ 1 (mod n), quan trọng trong các thuật toán như RSA.</li>
+                    <li><strong>Số dư định lý Fermat:</strong> Nếu p là số nguyên tố và a không chia hết cho p, thì a^(p-1) ≡ 1 (mod p).</li>
+                    <li><strong>Hàm Euler φ(n):</strong> Đếm số nguyên dương nhỏ hơn n và nguyên tố cùng n, dùng trong RSA.</li>
+                    <li><strong>Định lý Euler:</strong> Nếu a và n nguyên tố cùng nhau, thì a^φ(n) ≡ 1 (mod n).</li>
+                    <li><strong>Định lý Trung Quốc:</strong> Giúp giải hệ phương trình đồng dư với các moduli khác nhau.</li>
+                    <li><strong>Căn nguyên thủy:</strong> Số gốc tạo ra tất cả các phần tử của nhóm nhân modulo p, quan trọng trong Diffie-Hellman và DSA.</li>
+                </ul>
+
+            </div>
+            <div class="mb-6">
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Bài Tập</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="p-4 bg-gray-100 rounded-lg shadow">
@@ -293,10 +368,19 @@
 
         <!-- Chương 3: DES -->
         <section id="chapter3" class="chapter-section">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 3: Mã Hóa DES</h2>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Chương 3: Mã Hóa Hiện Đại</h2>
             <div class="mb-6">
-                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Lý Thuyết</h3>
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Lý Thuyết DES</h3>
                 <p class="text-gray-600">DES là thuật toán mã hóa khối đối xứng với key 56-bit, sử dụng 16 vòng Feistel. Bao gồm hoán vị ban đầu, tạo subkey, hàm f, và hoán vị cuối.</p>
+                <!-- Toi can them thong tin ve ly thuyet DES -->
+                <ul class="list-disc pl-6 text-gray-600">
+                    <li><strong>Hoán vị ban đầu (IP):</strong> Sắp xếp lại 64-bit input thành hai nửa 32-bit (L0, R0).</li>
+                    <li><strong>Tạo subkey:</strong> Từ key 64-bit (56-bit thực), tạo 16 subkey 48-bit qua PC-1, chia đôi, dịch vòng, PC-2.</li>
+                    <li><strong>Hàm f:</strong> Mở rộng R, XOR với subkey, qua S-box và P-box để tạo output 32-bit.</li>
+                    <li><strong>Vòng Feistel:</strong> L(i) = R(i-1), R(i) = L(i-1) XOR f(R(i-1), K(i)).</li>
+                    <li><strong>Hoán vị cuối (IP-1):</strong> Kết hợp L16 và R16, áp dụng IP-1 để ra bản mã 64-bit.</li>
+                </ul>
+
             </div>
             <div>
                 <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Bài Tập</h3>
@@ -368,7 +452,19 @@
                 </div>
             </div>
             <div class="mt-6">
-                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần AES</h4>
+                <h3 class="text-xl font-semibold text-gray-700 mb-4">Phần Lý Thuyết AES</h3>
+                <p class="text-gray-600">AES (Advanced Encryption Standard) là thuật toán mã hóa khối đối xứng hiện đại, sử dụng khối 128-bit và khóa 128, 192 hoặc 256-bit. AES gồm các bước chính sau:</p>
+                <ul class="list-disc pl-6 text-gray-600">
+                    <li><strong>Key Expansion:</strong> Từ khóa ban đầu, tạo ra các round keys cho mỗi vòng mã hóa.</li>
+                    <li><strong>AddRoundKey:</strong> XOR state với round key hiện tại.</li>
+                    <li><strong>SubBytes:</strong> Thay thế mỗi byte trong state bằng byte tương ứng từ S-box.</li>
+                    <li><strong>ShiftRows:</strong> Dịch các hàng của state theo một mẫu cố định.</li>
+                    <li><strong>MixColumns:</strong> Kết hợp các cột của state bằng phép nhân ma trận trong GF(2^8).</li>
+                    <li><strong>Rounds:</strong> Quá trình trên lặp lại qua nhiều vòng (10, 12 hoặc 14) tùy thuộc vào độ dài khóa.</li>
+                    <li><strong>Final Round:</strong> Giống như các vòng trước nhưng không có bước MixColumns.</li>
+                </ul>
+                <p class="text-gray-600 mt-4">AES được sử dụng rộng rãi trong bảo mật dữ liệu nhờ tính hiệu quả và độ an toàn cao.</p>
+
             </div>
             
             <div>
@@ -413,9 +509,6 @@
                     <div class="mt-2">Output: State Sau = <span id="aes6StateOut" class="font-bold"></span></div>
                 </div>
             </div>
-        </div>
-
-
         </section>
 
         <!-- Chương 4: Placeholder -->
@@ -515,7 +608,8 @@
             </div>
         </div>
     </footer>
-
+    
+    
     <script src="script.js"></script>
 </body>
 </html>
