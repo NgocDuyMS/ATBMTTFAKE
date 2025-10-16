@@ -5,30 +5,53 @@ document.querySelectorAll('.chapter-link').forEach(link => {
         const chapterId = this.getAttribute('data-chapter');
         document.querySelectorAll('.chapter-section').forEach(section => {
             section.classList.remove('active');
-            if (section.id === chapterId) section.classList.add('active');
+            section.style.display = 'none'; // Ẩn tất cả
+            if (section.id === chapterId) {
+                section.classList.add('active');
+                section.style.display = 'block'; // Hiển thị chapter được chọn
+            }
         });
+        document.getElementById(chapterId).scrollIntoView({ behavior: 'smooth' }); // Scroll mượt
+        console.log("Chuyển đến chương: " + chapterId);
     });
 });
 
 // Default show Chapter 1
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('chapter1').classList.add('active');
+    const chapter1 = document.getElementById('chapter1');
+    if (chapter1) {
+        chapter1.classList.add('active');
+        chapter1.style.display = 'block';
+        console.log("Chapter 1 được hiển thị");
+    } else {
+        console.log("Lỗi: Không tìm thấy chapter1");
+    }
 });
-
-
-
 
 
 
 // Chương 1: Mã Hóa Cổ Điển
 function caesarEncrypt() {
-    let m = document.getElementById('caesarM').value.toUpperCase().replace(/[^A-Z]/g, '');
-    let k = parseInt(document.getElementById('caesarK').value) % 26;
+    console.log("Hàm caesarEncrypt() đang chạy...");
+    let mInput = document.getElementById('caesarM');
+    let kInput = document.getElementById('caesarK');
+    let cOutput = document.getElementById('caesarC');
+    if (!mInput || !kInput || !cOutput) {
+        console.log("Lỗi: Không tìm thấy element input/output");
+        if (cOutput) cOutput.textContent = "Lỗi: Không tìm thấy input";
+        return;
+    }
+    let m = mInput.value.toUpperCase().replace(/[^A-Z]/g, '');
+    let k = parseInt(kInput.value) % 26;
+    if (isNaN(k)) {
+        cOutput.textContent = "Lỗi: Key phải là số!";
+        return;
+    }
     let c = '';
     for (let char of m) {
         c += String.fromCharCode((char.charCodeAt(0) - 65 + k) % 26 + 65);
     }
-    document.getElementById('caesarC').textContent = c;
+    cOutput.textContent = c || "Không có kết quả (chỉ nhập chữ A-Z)";
 }
 
 function vigenereLapEncrypt() {
@@ -183,8 +206,12 @@ function ch2bt9Calc() {
 
 // Chương 3: DES
 function des1Calc() {
-    // Placeholder for Sinh Khóa K tir
-    document.getElementById('des1Kt').textContent = 'NA (Implement chi tiết)';
+    let plain = document.getElementById('des1Plain').value;
+    if (!plain || !/^[0-9A-F]+$/.test(plain)) {
+        document.getElementById('des1IP').textContent = "Lỗi: Nhập hex 16 ký tự (0-9, A-F)";
+        return;
+    }
+    document.getElementById('des1IP').textContent = plain.split('').reverse().join(''); // Đảo ngược đơn giản
 }
 
 // Thêm các hàm cho các bài tập DES khác tương tự, placeholder vì phức tạp
@@ -430,6 +457,44 @@ document.getElementById('closeModal').addEventListener('click', function() {
 
 // Đóng modal khi ấn ngoài nội dung
 document.getElementById('memberModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.classList.remove('active');
+    }
+});
+
+
+
+
+
+
+
+
+
+
+// Modal Giảng Viên Hướng Dẫn
+document.getElementById('openTeacherModal').addEventListener('click', function() {
+    document.getElementById('teacherModal').classList.add('active');
+});
+document.getElementById('closeTeacherModal').addEventListener('click', function() {
+    document.getElementById('teacherModal').classList.remove('active');
+});
+document.getElementById('teacherModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.classList.remove('active');
+    }
+});
+
+
+
+
+// Modal Tài Liệu Tham Khảo
+document.getElementById('openResourceModal').addEventListener('click', function() {
+    document.getElementById('resourceModal').classList.add('active');
+});
+document.getElementById('closeResourceModal').addEventListener('click', function() {
+    document.getElementById('resourceModal').classList.remove('active');
+});
+document.getElementById('resourceModal').addEventListener('click', function(e) {
     if (e.target === this) {
         this.classList.remove('active');
     }
