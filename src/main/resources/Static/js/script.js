@@ -16,6 +16,13 @@ document.querySelectorAll('.chapter-link').forEach(link => {
     });
 });
 
+
+
+
+
+
+
+
 // Default show Chapter 1
 document.addEventListener('DOMContentLoaded', () => {
     const chapter1 = document.getElementById('chapter1');
