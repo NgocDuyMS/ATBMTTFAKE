@@ -97,3 +97,20 @@ button.bg-blue-500:hover {
 #resourceModal.active {
     display: flex;
 }
+
+
+
+
+
+/* TẠO CLASS ẨN TÙY CHỈNH: Tên là modal-hidden */
+.modal-hidden {
+    display: none;
+    transition: opacity 0.3s ease; /* Thêm hiệu ứng mượt mà khi ẩn/hiện */
+}
+
+/* SỬA QUY TẮC HIỂN THỊ CŨ */
+#memberModal.active,
+#teacherModal.active,
+#resourceModal.active {
+    display: flex; /* Đã sửa để khớp với logic */
+}
